@@ -70,6 +70,28 @@
             transform: scale(1.02);
         }
 
+        /* 🌸 アイテム説明（最初から非表示にする） */
+.memory-card .description {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    font-size: 10px;
+    color: #ffffff;
+    line-height: 1.4;
+    transition: all 0.4s ease;
+    text-align: left;
+    /* descriptionが存在しない場合は、この線も出ないようにします */
+}
+
+/* 🌸 ホバーした時、中にdescriptionがある場合だけ展開する */
+.memory-card:hover .description {
+    max-height: 100px;
+    opacity: 1;
+    margin-top: 10px;
+    padding-top: 5px;
+    border-top: 1px dashed rgba(0, 242, 254, 0.3);
+}
+
         .memory-card img {
             width: 100%;
             height: 100px;
@@ -105,6 +127,7 @@
         <div class="memory-card">
             <img src="https://kennew0922-lgtm.github.io/Socrariu-items/photo1.jpg" alt="Memory 1">
             <div class="label">Fantasy Projector</div>
+            <div class="description">空間に幻想を映し出す家庭用プラネタリウム</div>
         </div>
         <div class="memory-card">
             <img src="https://kennew0922-lgtm.github.io/Socrariu-items/photo2.jpg" alt="Memory 1">
