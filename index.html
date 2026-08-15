@@ -2,6 +2,12 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+
+<!-- 音声ファイルの読み込み -->
+<audio id="click-sound" preload="auto">
+  <source src="magic4.mp3" type="audio/mp3">
+</audio>
+
     <title>Socrarius Item Box</title>
 <style>
     body {
@@ -273,7 +279,7 @@
     <div class="sections-title shop-title" id="section2">ONLINE STORE</div>
     <div class="shop-gallery">
         <!-- Amazonリンク（カード全体をリンクにしています） -->
-        <a href="https://www.amazon.co.jp/" target="_blank" rel="noopener" class="shop-card">
+        <a href="https://www.amazon.co.jp/" target="_blank" rel="noopener" class="shop-card" id="sound-link">
             <img src="https://socrarius-tool.com/photo4.png" alt="Amazon">
             <!-- <div class="label">Amazon</div> -->
         </a>
@@ -320,6 +326,17 @@
      
       </div>
     </div>
+
+    <script>
+  const link = document.getElementById('sound-link');
+  const sound = document.getElementById('click-sound');
+
+  link.addEventListener('click', (e) => {
+    // 音の再生を確実に行うため、必要に応じて画面遷移を少し遅らせることもあります
+    sound.currentTime = 0; // 連続クリックに対応
+    sound.play();
+  });
+</script>
 
 </body>
 </html>
