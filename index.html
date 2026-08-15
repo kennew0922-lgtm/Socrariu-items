@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
 
-<!-- ✨音声ファイルの読み込み -->
+<!-- ✨効果音魔法準備 ① -->
 <audio id="click-sound" preload="auto">
   <source src="https://socrarius-tool.com/launcher/magic20.mp3" type="audio/mp3">
 </audio>
@@ -205,6 +205,7 @@
     <!-- 🌸 ITEM LIST セクション -->
     <div class="section-title" id="section1">ITEM LIST</div>
     <div class="gallery">
+        <!-- ✨効果音　召喚魔法実行　-->
         <a href="https://socrarius-tool.com/photo1.png" target="_blank" class="memory-card" id="magic-link">            
             <img src="https://socrarius-tool.com/photo1.png" alt="Memory 1">
             <div class="label">Fantasy Projector</div>
@@ -330,23 +331,29 @@
       </div>
     </div>
 
-    <script>
-  const link = document.getElementById('sound-link');
-  const sound = document.getElementById('click-sound');
+<script>
+  /* ✨効果音魔法準備（一括付与版） */
+  
+  // ① ONLINE STORE用（.shop-card のすべての要素に効果音を登録！）
+  const shopLinks = document.querySelectorAll('.shop-card');
+  const clickSound = document.getElementById('click-sound');
 
-  link.addEventListener('click', (e) => {
-    // 音の再生を確実に行うため、必要に応じて画面遷移を少し遅らせることもあります
-    sound.currentTime = 0; // 連続クリックに対応
-    sound.play();
+  shopLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      clickSound.currentTime = 0; // 連打対応
+      clickSound.play().catch(e => console.log("Audio play blocked:", e));
+    });
   });
 
-  const link = document.getElementById('magic-link');
-  const sound = document.getElementById('click-magic');
+  // ② ITEM LIST用（.memory-card のすべての要素に効果音を登録！）
+  const magicLinks = document.querySelectorAll('.memory-card');
+  const clickMagic = document.getElementById('click-magic');
 
-  link.addEventListener('click', (e) => {
-    // 音の再生を確実に行うため、必要に応じて画面遷移を少し遅らせることもあります
-    sound.currentTime = 0; // 連続クリックに対応
-    sound.play();
+  magicLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      clickMagic.currentTime = 0; // 連打対応
+      clickMagic.play().catch(e => console.log("Audio play blocked:", e));
+    });
   });
 </script>
 
