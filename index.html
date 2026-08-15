@@ -67,13 +67,12 @@
         margin-bottom: 40px;
     }
 
-    /* ★ ITEM LIST用：SAO風ブルーBOXパネル！ */
+    /* ★ ITEM LIST用：フラット＆シャープなSAOブルーBOXパネル！ */
     .memory-card {
         border: 1px solid rgba(0, 242, 254, 0.4);
         background: linear-gradient(135deg, rgba(0, 30, 60, 0.6) 0%, rgba(0, 10, 20, 0.8) 100%);
         padding: 8px;
-        /* SAO風の非対称カット（右上と左下をカッコよく面取り） */
-        border-radius: 0 12px 0 12px; 
+        border-radius: 12px 12px 12px 12px;
         transition: all 0.3s ease;
         text-decoration: none;
         display: block;
@@ -88,12 +87,15 @@
         background: linear-gradient(135deg, rgba(0, 60, 120, 0.7) 0%, rgba(0, 20, 40, 0.9) 100%);
     }
 
-    /* ★ 画像を正方形（1:1）に固定し、枠内にキレイに収める！ */
+    /* ★ 画像：正方形キープ＋枠との間に絶妙な「隙間」を配置！ */
     .memory-card img {
         width: 100%;
-        aspect-ratio: 1 / 1; /* 完全な正方形キープ！ */
-        object-fit: cover;    /* 枠いっぱいにキレイに敷き詰める */
-        border-radius: 0 8px 0 8px;
+        aspect-ratio: 1 / 1;    /* 完全な正方形キープ！ */
+        object-fit: contain;     /* 枠いっぱいに潰さず、隙間が見えるように収める！ */
+        border-radius: 0;        /* 画像側の面取りも解除 */
+        padding: 12px;            /* 枠との間に絶妙な隙間を作る余白 */
+        box-sizing: border-box; /* パディングを含めて100%に収める */
+        background: rgba(0, 0, 0, 0); /* 画像裏にうっすら暗い背景を入れて動く背景との視認性を確保 */
         display: block;
     }
 
@@ -129,7 +131,7 @@
     }
 
 
-    /* 🪐 ONLINE STORE（元通りのシンプルコンパクト仕様） */
+    /* 🪐 ONLINE STORE（シンプルコンパクト仕様） */
 
     .shop-gallery {
         display: grid;
